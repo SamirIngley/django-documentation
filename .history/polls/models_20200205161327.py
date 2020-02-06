@@ -48,6 +48,6 @@ class Group(models.Model):
 class Membership(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
-    date_joined = models.DateField()
+    date_joined = models.DateTimeField()
     invite_reason = models.CharField(max_length=64)
 
