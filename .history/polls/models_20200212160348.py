@@ -34,7 +34,7 @@ class Choice(models.Model):
 
 class Person(models.Model):
     name = models.CharField(max_length=128)
-    age = models.IntegerField(default=0)
+    age = models.IntegerField()
 
     def is_over_13(self):
         return self.age > 13
