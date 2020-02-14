@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponse
 from datetime import datetime
 from .models import Question, Choice
-from django.views import generic, View
+from django.views import Views, generic
 from django.urls import reverse
 
 
@@ -20,9 +20,9 @@ class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
 
-class ResultsView(generic.DetailView):
-    model = Question
-    template_name = 'polls/results.html'
+def results(request, question_id):
+    response = "you're looking at the results of question %s."
+    return HttpResponse(response % question_id)
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
